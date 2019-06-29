@@ -51,4 +51,5 @@ Person.propTypes = {
   changed: PropTypes.func
 }
 
+// Now withClass refers to forwardRef method result 
 export default withClass(Person, classes.Person);
