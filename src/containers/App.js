@@ -6,6 +6,10 @@ import Cockpit from "../components/Cockpit/Cockpit";
 import withClass from "../hoc/withClass";
 import Auxi from "../hoc/Auxi";
 
+// false is the default value for the context
+// AuthContext is a component (createContext create a component)
+const AuthContext = React.createContext(false);
+
 class App extends PureComponent {
   constructor(props) {
     super(props);
@@ -115,7 +119,7 @@ class App extends PureComponent {
           persons={this.state.persons}
           clicked={this.deletePersonHandler}
           changed={this.nameChangedHandler}
-          isAuthenticated={this.state.authenticated}
+        // isAuthenticated={this.state.authenticated}
         />
       );
     }
@@ -139,7 +143,7 @@ class App extends PureComponent {
           login={this.loginHandler}
           clicked={this.togglePersonsHandler}
         />
-        {persons}
+        <AuthContext.Provider value={this.state.authenticated}>{persons}</AuthContext.Provider>
       </Auxi>
     );
   }
