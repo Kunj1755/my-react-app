@@ -8,7 +8,7 @@ import Auxi from "../hoc/Auxi";
 
 // false is the default value for the context
 // AuthContext is a component (createContext create a component)
-const AuthContext = React.createContext(false);
+export const AuthContext = React.createContext(false);
 
 class App extends PureComponent {
   constructor(props) {
